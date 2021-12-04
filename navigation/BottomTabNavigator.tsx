@@ -7,7 +7,7 @@ import { Pressable } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import TabOneScreen from "../screens/TabOneScreen";
+import HomeScreen from "../screens/HomeScreen/index";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootTabParamList,
@@ -35,28 +35,13 @@ export default function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="Home"
-        component={TabOneNavigator}
-        options={({ navigation }: RootTabScreenProps<"Home">) => ({
-          title: "Home",
+        component={HomeNavigator}
+        options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <AntDesign name="home" size={24} color={color} />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("Modal")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
+        }}
       />
       <BottomTab.Screen
         name="ComingSoon"
@@ -96,12 +81,12 @@ export default function BottomTabNavigator() {
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const HomeStack = createNativeStackNavigator<HomeParamList>();
 
-function TabOneNavigator() {
+function HomeNavigator() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
         name="HomeScreen"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={{ headerShown: false }}
       />
       {/* <HomeStack.Screen
