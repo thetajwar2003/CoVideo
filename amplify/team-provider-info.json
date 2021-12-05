@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-covideo-dev-135110-authRole",
+      "UnauthRoleArn": "arn:aws:iam::252369173231:role/amplify-covideo-dev-135110-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::252369173231:role/amplify-covideo-dev-135110-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-covideo-dev-135110-deployment",
+      "UnauthRoleName": "amplify-covideo-dev-135110-unauthRole",
+      "StackName": "amplify-covideo-dev-135110",
+      "StackId": "arn:aws:cloudformation:us-east-2:252369173231:stack/amplify-covideo-dev-135110/5162c5f0-55fc-11ec-b4ca-06d129292d8e",
+      "AmplifyAppId": "d291q27b3jzusy"
+    },
+    "categories": {
+      "auth": {
+        "covideo98fd452c": {}
+      }
+    }
+  }
+}
