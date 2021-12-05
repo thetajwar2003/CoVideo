@@ -14,26 +14,25 @@ import {
 } from "@expo/vector-icons";
 import EpisodeItem from "../../components/EpisodeItem";
 import { Picker, PickerIOS } from "@react-native-picker/picker";
+import VideoPlayer from "../../components/VideoPlayer";
 
 export default function MovieDetailsScreen() {
   const firstSeason = movie.seasons.items[0];
-  const mov = firstSeason.episodes.items[0];
   const seasonNames = movie.seasons.items.map((season) => season.name);
 
+  const [currentEpisode, setcurrentEpisode] = useState(
+    firstSeason.episodes.items[0]
+  );
   const [currentSeason, setCurrentSeason] = useState(firstSeason);
   return (
     <View>
-      <Image
-        style={styles.image}
-        source={{
-          uri: mov.poster,
-        }}
-      />
-
+      <VideoPlayer episode={currentEpisode} />
       <FlatList
         style={{ marginBottom: 250 }}
         data={currentSeason.episodes.items}
-        renderItem={({ item }) => <EpisodeItem episode={item} />}
+        renderItem={({ item }) => (
+          <EpisodeItem episode={item} onPress={setcurrentEpisode} />
+        )}
         ListHeaderComponent={
           <View style={{ padding: 12 }}>
             <Text style={styles.title}>{movie.title}</Text>
@@ -73,7 +72,7 @@ export default function MovieDetailsScreen() {
               </Text>
             </Pressable>
 
-            <Text style={{ marginVertical: 10 }}>{mov.plot}</Text>
+            <Text style={{ marginVertical: 10 }}>{movie.plot}</Text>
             <Text style={styles.year}>Cast: {movie.cast}</Text>
             <Text style={styles.year}>Creator: {movie.creator}</Text>
 
