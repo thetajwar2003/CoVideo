@@ -32,6 +32,7 @@ export default function HomeCategory(props: HomeCategoryProps) {
           />
         )}
         horizontal
+        showsHorizontalScrollIndicator={false}
       />
     </>
   );

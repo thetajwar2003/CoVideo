@@ -7,7 +7,8 @@ import { Pressable } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import HomeScreen from "../screens/HomeScreen/index";
+import HomeScreen from "../screens/HomeScreen/";
+import MovieDetailsScreen from "../screens/MovieDetailsScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootTabParamList,
@@ -85,17 +86,17 @@ function HomeNavigator() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
-        options={{ headerShown: false }}
-      />
-      {/* <HomeStack.Screen
         name="MovieDetailsScreen"
         component={MovieDetailsScreen}
         options={{
           title: "",
         }}
-      /> */}
+      />
+      <HomeStack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
     </HomeStack.Navigator>
   );
 }
